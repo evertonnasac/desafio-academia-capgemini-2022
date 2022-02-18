@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public  static int teste (String s){
+    public  static int filter (String s){
         return s.matches("[0-9]{1,}") ? Integer.parseInt(s) : 0 ;
     }
 
@@ -26,7 +26,7 @@ public class Main {
 
 
            teste = scanner.nextLine();
-           option = Main.teste(teste);
+           option = Main.filter(teste);
 
            switch (option){
 
@@ -36,13 +36,12 @@ public class Main {
                        repeat = 0;
                        System.out.println("Digite o número de degraus da escada (base e altura)");
                        teste = scanner.nextLine();
-                       int step = Main.teste(teste);
+                       int step = Main.filter(teste);
                        ladder = new Escada();
                        ladder.getStep(step);
                        System.out.println("\nQuer testar essa questão novamente? Digite 1 se SIM ou qualquer número para voltar ao menu");
                        teste = scanner.nextLine();
-                       repeat = Main.teste(teste);
-                       System.out.println(repeat);
+                       repeat = Main.filter(teste);
                    } while (repeat == 1);
                    break;
 
@@ -57,7 +56,7 @@ public class Main {
                        password.VerifyPassword(pass);
                        System.out.println("\nQuer testar essa questão novamente? Digite 1 se SIM ou qualquer número para voltar ao menu");
                        teste = scanner.nextLine();
-                       repeat = Main.teste(teste);
+                       repeat = Main.filter(teste);
                    }while (repeat == 1);
                    break;
                }
@@ -71,7 +70,7 @@ public class Main {
                        anagrama.SearchAnagrama(word);
                        System.out.println("\nQuer testar essa questão novamente? Digite 1 se SIM ou qualquer número para voltar ao menu");
                        teste = scanner.nextLine();
-                       repeat = Main.teste(teste);
+                       repeat = Main.filter(teste);
                    }while (repeat == 1);
                    break;
 

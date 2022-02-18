@@ -4,19 +4,26 @@ package com.company;
 
 public class Senha {
 
-    private boolean securityPass = true;
+    private char [] symbles = {'!','@','#','$','%','&','*','(',')','-','+','/','?','=','<','>','.',',','[',']'};
+    private boolean securePass = true;
     private int  minLength = 6;
 
 
+
+    /*
+    Recebe a senha informada
+    Chama o metodo VerifyPass para validar a senha
+    Imprime no console um feedback sobre a senha
+    */
     public void VerifyPassword(String password){
 
         String newPass = this.ValidatePass(password);
         int length = password.length();
         if(length < this.minLength){
-            System.out.println(length+ " caracteres. Voce precisa adicionar pelo menos mais "
-                    +(this.minLength-length)+" caracteres para uma senha segura. Exmeplo de uma senha: " +newPass);
+            System.out.println(length+ " caracteres. Voce precisa adicionar, no mínimo, mais "
+                    +(this.minLength-length)+" caracteres. Sugestão de uma senha segura: " +newPass);
 
-        }else if(!securityPass) {
+        }else if(!securePass) {
             System.out.println(length + " caracteres. Mas sua senha não é segura. Sugestão: "+ newPass+" ");
 
         }else {
@@ -24,16 +31,20 @@ public class Senha {
         }
     }
 
+
+    /*Recebe uma senha para verificação
+      Se a senha tiver dentro dos padrões, retorna a propria senha recebida sem alterações
+      se não, completa e retorna uma nova senha, de acordo com os padrões de segurança
+     */
     private String ValidatePass(String password){
 
         char [] caracter = password.toCharArray();
-        char [] symbles = {'!','@','#','$','%','&','*','(',')','-','+','/','?','=','<','>','.',',','[',']'};
         boolean setSymble = true, setNumber = true, setMax = true, setMin = true;
 
         for( char c : caracter){
 
             if(setSymble){
-                for (char symble : symbles){
+                for (char symble : this.symbles){
                     if(c == symble){
                         setSymble = false;
                         break;
@@ -49,23 +60,23 @@ public class Senha {
 
         if(setNumber){
             password = password.concat("1");
-            this.securityPass = false;
+            this.securePass= false;
         }
         if(setMax) {
             password = password.concat("A");
-            this.securityPass = false;
+            this.securePass = false;
         }
         if(setMin){
             password = password.concat("b");
-            this.securityPass = false;
+            this.securePass = false;
         }
         if(setSymble) {
             password = password.concat("@");
-            this.securityPass = false;
+            this.securePass = false;
         }
 
         if(password.length() < this.minLength){
-            this.securityPass = false;
+            this.securePass = false;
             String newPass = this.FullPassword(password);
             return newPass;
         }
