@@ -21,7 +21,7 @@
 <li>A Classe "Main.java" possui o método "main" que inicia a aplicação</li>
 </ul>
 
-<h1>Instruções para executar o projeto</h1>
+<h2>Instruções para executar o projeto</h2>
 <li>Clone ou faça download do repositótio </li>
 <li>Verifique a compatibilidade da versão do JDK usada na aplicação com a versão instalada em sua máquina</li>
 <li>Abra e execute o projeto na sua IDE de preferência</li>
@@ -29,6 +29,5 @@
 
 
 <br/>
-Everton Sacramento - nazare.everton@gmail.com
 
 
